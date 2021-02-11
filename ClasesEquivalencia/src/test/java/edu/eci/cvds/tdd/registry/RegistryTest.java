@@ -11,7 +11,7 @@ public class RegistryTest {
     @Test
     public void validateRegistryResult() {
 
-        Person person = new Person();
+        Person person = new Person("Cristhian", 3579, 21, Gender.MALE,true);
 
         RegisterResult result = registry.registerVoter(person);
 
@@ -20,29 +20,29 @@ public class RegistryTest {
     
     @Test
     public void validarMayoriaDeEdad(){
-        Person person = new Person("Nicolas", 1234, 15, Gender.MALE, true);
-        RegisterResult result = registry.registerVoter(person);
+        Person person1 = new Person("Nicolas", 9876, 15, Gender.MALE, true);
+        RegisterResult result = registry.registerVoter(person1);
         Assert.assertEquals(RegisterResult.UNDERAGE, result);
     }
     
     @Test
     public void validarEdad(){
-        Person person = new Person("Nicolas", 1234, -40, Gender.MALE, true);
-        RegisterResult result = registry.registerVoter(person);
+        Person person2 = new Person("David", 4321, -40, Gender.MALE, true);
+        RegisterResult result = registry.registerVoter(person2);
         Assert.assertEquals(RegisterResult.INVALID_AGE, result);
     }
     
     @Test
     public void validarExistencia(){
-        Person person = new Person("Nicolas", 1234, 40, Gender.MALE, false);
-        RegisterResult result = registry.registerVoter(person);
+        Person person3 = new Person("Sofia", 2468, 20, Gender.FEMALE, false);
+        RegisterResult result = registry.registerVoter(person3);
         Assert.assertEquals(RegisterResult.DEAD, result);
     }
     
     @Test
     public void validarDuplicado(){
-        Person person = new Person("Nicolas", 1234, 40, Gender.MALE, true);
-        RegisterResult result = registry.registerVoter(person);
+        Person person4 = new Person("Nicolas", 1234, 40, Gender.MALE, true);
+        RegisterResult result = registry.registerVoter(person4);
         Person duplicado = new Person("Nicolas", 1234, 40, Gender.MALE, true);
         RegisterResult nuevo = registry.registerVoter(duplicado);
         Assert.assertEquals(RegisterResult.DUPLICATED, nuevo);

@@ -11,7 +11,7 @@ public class Registry {
         
         if(p.getAge() < 18 && p.getAge() > 0){
             return RegisterResult.UNDERAGE;
-        } else if(p.getAge() < 0 && p.getAge() > 150){
+        } else if(p.getAge() < 0 || p.getAge() > 150){
             return RegisterResult.INVALID_AGE;
         } else if(p.isAlive() == false){
             return RegisterResult.DEAD;
