@@ -17,7 +17,13 @@ public class TarifasTest {
     @Test
     public void validarDias(){
         double result1 = calculador.calculoTarifa(1000, -50000, 21);
-        //Assert.assertEquals((int)result1, 50000);
-        System.out.println(result1);
+        Assert.assertEquals((int)result1, 50000);
+        
+    }
+    
+    @Test
+    public void validarEdad(){
+        double result2 = calculador.calculoTarifa(2000, 30, -20);
+        Assert.assertEquals((int)result2,2000);
     }
 }
