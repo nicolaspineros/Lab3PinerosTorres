@@ -22,3 +22,5 @@
 1. 10000000 < tarifa < 0 , caso de prueba = -500 
 2. 1000 < dias < 0 , caso de prueba = 50000
 3. 150 < edad < 0, caso de prueba = -20
+
+Los test con los casos de prueba se corrieron pero la logica del CalculoTarifa no tiene en cuenta los limites o fronteras señalados anteriormente 
